@@ -139,6 +139,7 @@ public class DistributedLock implements Lock, Watcher {
 
     //zookeeper节点信息更新回调方法
     public void process(WatchedEvent watchedEvent) {
+        //因为上面创建了节点监听，上个节点进行了操作就会进行回调
         if(null != this.countDownLatch) {
             countDownLatch.countDown();
         }
