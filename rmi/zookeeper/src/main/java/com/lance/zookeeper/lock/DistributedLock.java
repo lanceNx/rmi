@@ -58,10 +58,16 @@ public class DistributedLock implements Lock, Watcher {
 
     //判断是否获取锁成功
     public boolean tryLock() {
-        CURRENT_LOCK = zooKeeper.create(ROOT_LOCK + "/", "0".getBytes(),
-                OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
-        System.out.println(Thread.currentThread().getName()+" -> 尝试获取锁 " + CURRENT_LOCK);
-        List<String> children = zooKeeper.getChildren(ROOT_LOCK + "/", false);
+        try {
+            CURRENT_LOCK = zooKeeper.create(ROOT_LOCK + "/", "0".getBytes(),
+                    OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+            System.out.println(Thread.currentThread().getName()+" -> 尝试获取锁 " + CURRENT_LOCK);
+            List<String> children = zooKeeper.getChildren(ROOT_LOCK + "/", false);
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         return false;
