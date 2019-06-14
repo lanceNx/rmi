@@ -15,20 +15,17 @@ public class ProcessorHandler implements Runnable {
         this.service = service;
     }
 
-    @Override
     public void run() {
         ObjectInputStream objectInputStream = null;
         try {
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             RequestObject requestObject = (RequestObject) objectInputStream.readObject();
-
             Object result = invoke(requestObject);
 
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.writeObject(result);
             objectOutputStream.flush();
             objectOutputStream.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
