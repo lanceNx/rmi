@@ -17,7 +17,6 @@ public class AppDemo {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
             }).start();
             countDownLatch.countDown();
         }
