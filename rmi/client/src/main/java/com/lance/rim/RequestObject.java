@@ -9,6 +9,15 @@ public class RequestObject implements Serializable {
     private String className;
     private String MethodName;
     private Object[] args;
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
     public String getClassName() {
         return className;

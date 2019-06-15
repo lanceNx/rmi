@@ -5,14 +5,16 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProcessorHandler implements Runnable {
     private Socket socket;
-    private Object service; //服务端发布的服务
+    private Map<String, Object> map = new HashMap();
 
-    public ProcessorHandler(Socket socket, Object service) {
+    public ProcessorHandler(Socket socket, Map<String, Object> map) {
         this.socket = socket;
-        this.service = service;
+        this.map = map;
     }
 
     public void run() {
@@ -37,7 +39,6 @@ public class ProcessorHandler implements Runnable {
                 }
             }
         }
-
     }
 
     private Object invoke(RequestObject requestObject) throws Exception {
@@ -47,8 +48,10 @@ public class ProcessorHandler implements Runnable {
         for (int i = 0; i < args.length; i++) {
             types[i] = args[i].getClass();
         }
-
-        Method method = this.service.getClass().getMethod(requestObject.getMethodName(), types);
-        return method.invoke(this.service, args);
+        String className = requestObject.getClassName();
+        //从内存map中获取这个服务名称对应的服务实例
+        Object service = map.get(className);
+        Method method = service.getClass().getMethod(requestObject.getMethodName(), types);
+        return method.invoke(service, args);
     }
 }
