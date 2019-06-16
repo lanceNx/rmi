@@ -1,8 +1,8 @@
-package com.lance.rim;
+package com.lance.rmi;
 
-import com.lance.rim.zk.IServiceDiscovery;
-import com.lance.rim.zk.ServiceDiscoveryImpl;
-import com.lance.rim.zk.ZkConfig;
+import com.lance.rmi.zk.IServiceDiscovery;
+import com.lance.rmi.zk.ServiceDiscoveryImpl;
+import com.lance.rmi.zk.ZkConfig;
 
 /**
  * 手写JAVA原生RPC框架 RMI

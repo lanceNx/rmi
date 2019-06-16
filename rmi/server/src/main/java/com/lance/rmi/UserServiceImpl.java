@@ -1,6 +1,6 @@
-package com.lance.rim;
+package com.lance.rmi;
 
-import com.lance.rim.anno.RegisterAnno;
+import com.lance.rmi.anno.RegisterAnno;
 
 @RegisterAnno(UserService.class)
 public class UserServiceImpl implements UserService {

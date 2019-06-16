@@ -1,4 +1,4 @@
-package com.lance.rim.zk;
+package com.lance.rmi.zk;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

@@ -1,4 +1,4 @@
-package com.lance.rim.zk;
+package com.lance.rmi.zk;
 
 import java.util.List;
 import java.util.Random;

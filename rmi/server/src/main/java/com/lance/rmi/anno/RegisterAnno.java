@@ -1,4 +1,4 @@
-package com.lance.rim.anno;
+package com.lance.rmi.anno;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

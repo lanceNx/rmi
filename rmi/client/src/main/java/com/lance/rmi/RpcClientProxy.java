@@ -1,6 +1,6 @@
-package com.lance.rim;
+package com.lance.rmi;
 
-import com.lance.rim.zk.IServiceDiscovery;
+import com.lance.rmi.zk.IServiceDiscovery;
 
 import java.lang.reflect.Proxy;
 

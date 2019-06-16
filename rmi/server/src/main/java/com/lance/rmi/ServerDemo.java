@@ -1,7 +1,7 @@
-package com.lance.rim;
+package com.lance.rmi;
 
-import com.lance.rim.zk.IRegisterCenter;
-import com.lance.rim.zk.RegisterCenterImpl;
+import com.lance.rmi.zk.IRegisterCenter;
+import com.lance.rmi.zk.RegisterCenterImpl;
 
 public class ServerDemo {
 

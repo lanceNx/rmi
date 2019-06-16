@@ -1,4 +1,4 @@
-package com.lance.rim;
+package com.lance.rmi;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

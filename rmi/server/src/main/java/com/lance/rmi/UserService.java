@@ -1,4 +1,4 @@
-package com.lance.rim;
+package com.lance.rmi;
 
 public interface UserService {
 
