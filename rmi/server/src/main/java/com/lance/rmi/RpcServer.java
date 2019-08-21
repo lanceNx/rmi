@@ -28,13 +28,12 @@ public class RpcServer {
 
     public void publisher() {
         ServerSocket serverSocket = null;
-
         try {
-            //服务发布
+            //启动对应端口服务
             serverSocket = new ServerSocket(Integer.parseInt(address.split(":")[1]));
             //向zk注解绑定的服务
             for (String interfaceName : map.keySet()) {
-                registerCenter.register(interfaceName,address);
+                registerCenter.register(interfaceName, address);
             }
 
             while (true) {
@@ -64,11 +63,11 @@ public class RpcServer {
 
             //获取注解上的版本
             String version = annotation.version();
-            if(null != version && !"".equals(version)) {
-                serviceName = serviceName+"-"+version;
+            if (null != version && !"".equals(version)) {
+                serviceName = serviceName + "-" + version;
             }
             //将服务名名称和服务实例绑定
-            map.put(serviceName,service);
+            map.put(serviceName, service);
         }
     }
 }

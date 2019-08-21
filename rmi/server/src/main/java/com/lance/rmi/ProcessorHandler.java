@@ -45,12 +45,15 @@ public class ProcessorHandler implements Runnable {
         Object[] args = requestObject.getArgs();
         Class[] types = new Class[args.length];
 
+        //收集参数对应的参数类型
         for (int i = 0; i < args.length; i++) {
             types[i] = args[i].getClass();
         }
+        //获取类名
         String className = requestObject.getClassName();
         //从内存map中获取这个服务名称对应的服务实例
         Object service = map.get(className);
+        //根据方法名 参数类型来获取方法
         Method method = service.getClass().getMethod(requestObject.getMethodName(), types);
         return method.invoke(service, args);
     }

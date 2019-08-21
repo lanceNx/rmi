@@ -3,6 +3,11 @@ package com.lance.rmi;
 import com.lance.rmi.zk.IRegisterCenter;
 import com.lance.rmi.zk.RegisterCenterImpl;
 
+/**
+ * @author Lance
+ * 手写JAVA原生RPC框架 RMI
+ * 1.0版本
+ */
 public class ServerDemo {
 
     public static void main(String[] args) {
