@@ -11,7 +11,7 @@
 
     <artifactId>server</artifactId>
     <properties>
-        <zookeeper.version>3.4.8</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
     </properties>
     <dependencies>
         <dependency>
